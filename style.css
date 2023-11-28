@@ -1,5 +1,6 @@
 :root {
   --primary-blue: #3f72e9;
+  --secondary-blue: #1a2335;
   --primary-green: #508c47;
 }
 
@@ -15,6 +16,7 @@ body {
 
 nav {
   background-color: var(--primary-blue);
+  width: 100vw;
 }
 
 nav div {
@@ -49,15 +51,13 @@ nav div a {
 
 .product-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
-  gap: 20px;
-  width: 90vw;
+  gap: 20vw;
+  width: 100vw;
   height: 268px;
-  margin: 40px auto;
-  padding: 10px 0px;
-  padding-bottom: 4rem;
+  margin: 0 auto;
+  padding: 40px 0px;
   border-bottom: 1px solid #f0f0f1;
 }
 
@@ -71,7 +71,7 @@ nav div a {
   width: 204px;
   height: 220px;
   padding-left: 30px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   margin-left: 60px;
 }
 
@@ -127,6 +127,104 @@ nav div a {
   font-weight: 600;
 }
 
+footer {
+  display: flex;
+  justify-content: space-between;
+  height: 284px;
+  margin: 0 auto;
+  background-color: var(--secondary-blue);
+  color: #fff;
+  width: 100vw;
+}
+
+footer h6 {
+  color: #878787;
+}
+
+.footer-left {
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  margin: 40px auto;
+  height: 158px;
+  gap: 100px;
+  width: 60vw;
+}
+
+.footer-left div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-left ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.footer-right {
+  display: flex;
+  align-items: space-between;
+  margin: 40px auto;
+  height: 158px;
+  gap: 80px;
+  width: 40vw;
+}
+
+.footer-right div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-right p {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.footer-right div:first-child {
+  border-left: 1px solid #474d5d;
+  padding-left: 30px;
+}
+
+.footer-right span {
+  color: #3d72e8;
+}
+
+@media screen and (max-width: 1024px) {
+  .product-container {
+    height: max-content;
+  }
+
+  .product-left {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  footer {
+    height: 300px;
+    gap: 10px;
+  }
+
+  .footer-left {
+    gap: 10px;
+    width: 90vw;
+  }
+
+  .footer-right {
+    gap: 10px;
+    width: 90vw;
+  }
+  .footer-right div:first-child {
+    padding-left: 10px;
+  }
+}
+
 @media screen and (max-width: 600px) {
   nav div {
     width: 100vw;
@@ -146,6 +244,8 @@ nav div a {
 
   .product-container {
     height: max-content;
+    width: 90vw;
+    flex-wrap: wrap;
   }
 
   .product-left {
@@ -157,22 +257,45 @@ nav div a {
     font-size: 16px;
   }
 
+  .product-left img {
+    width: 70%;
+    height: 70%;
+    padding: 0;
+    margin: 0;
+  }
+
   .product-info {
     width: 100%;
   }
 
   .product-right {
     width: 100%;
+    padding-left: 30px;
   }
-}
-
-@media screen and (max-width: 1024px) {
-  .product-container {
+  footer {
+    flex-direction: column;
     height: max-content;
   }
 
-  .product-left {
+  .footer-left {
+    height: max-content;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    width: 90vw;
+  }
+
+  .footer-right {
+    height: max-content;
     flex-direction: column;
     gap: 30px;
+    width: 90vw;
+  }
+
+  .footer-right div:first-child {
+    border-left: none;
+    border-top: 1px solid #474d5d;
+    padding-top: 30px;
+    padding-left: 0px;
   }
 }
