@@ -1,0 +1,178 @@
+:root {
+  --primary-blue: #3f72e9;
+  --primary-green: #508c47;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+nav {
+  background-color: var(--primary-blue);
+}
+
+nav div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  width: 40vw;
+  height: 56px;
+  margin: 0 auto;
+  padding: 10px 0px;
+}
+
+nav div input {
+  width: 507px;
+  height: 40px;
+  border: none;
+  padding: 0px 10px;
+}
+
+nav div a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.become-seller {
+  margin-right: 10px;
+  text-wrap: nowrap;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  width: 90vw;
+  height: 268px;
+  margin: 40px auto;
+  padding: 10px 0px;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #f0f0f1;
+}
+
+.product-left {
+  display: flex;
+  gap: 100px;
+  font-size: 14px;
+}
+
+.product-left img {
+  width: 204px;
+  height: 220px;
+  padding-left: 30px;
+  padding-bottom: 20px;
+  margin-left: 60px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-info a {
+  text-wrap: nowrap;
+  height: 23px;
+  font-size: 20px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.product-info li {
+  position: relative;
+  left: 1em;
+  padding-bottom: 5px;
+}
+
+.star-rating {
+  padding: 2px 4px;
+  background-color: var(--primary-green);
+  color: #fff;
+  border-radius: 4px;
+}
+
+.product-right {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.product-right p {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.product-right .price {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.product-right span {
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+@media screen and (max-width: 600px) {
+  nav div {
+    width: 100vw;
+    flex-direction: column;
+    height: max-content;
+  }
+
+  nav div input {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+
+  .become-seller {
+    width: 50%;
+    text-align: center;
+  }
+
+  .product-container {
+    height: max-content;
+  }
+
+  .product-left {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .product-info a {
+    font-size: 16px;
+  }
+
+  .product-info {
+    width: 100%;
+  }
+
+  .product-right {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .product-container {
+    height: max-content;
+  }
+
+  .product-left {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
