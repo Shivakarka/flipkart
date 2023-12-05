@@ -53,7 +53,7 @@ nav div a {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 20vw;
+  gap: 25vw;
   width: 100vw;
   height: 268px;
   margin: 0 auto;
@@ -63,27 +63,25 @@ nav div a {
 
 .product-left {
   display: flex;
-  gap: 100px;
+  gap: 30px;
   font-size: 14px;
 }
 
 .product-left img {
   width: 204px;
   height: 220px;
-  padding-left: 30px;
   padding-bottom: 40px;
-  margin-left: 60px;
+  object-fit: contain;
 }
 
 .product-info {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 15px;
 }
 
 .product-info a {
   text-wrap: nowrap;
-  height: 23px;
   font-size: 20px;
   color: #000;
   text-decoration: none;
@@ -92,7 +90,7 @@ nav div a {
 
 .product-info li {
   position: relative;
-  left: 1em;
+  left: 2em;
   padding-bottom: 5px;
 }
 
@@ -148,7 +146,7 @@ footer h6 {
   margin: 40px auto;
   height: 158px;
   gap: 100px;
-  width: 60vw;
+  width: 45vw;
 }
 
 .footer-left div {
@@ -204,6 +202,7 @@ footer h6 {
   .product-left {
     flex-direction: column;
     gap: 30px;
+    margin-left: 30px;
   }
 
   footer {
@@ -251,6 +250,7 @@ footer h6 {
   .product-left {
     flex-direction: column;
     gap: 30px;
+    margin-left: 0px;
   }
 
   .product-info a {
@@ -262,6 +262,7 @@ footer h6 {
     height: 70%;
     padding: 0;
     margin: 0;
+    object-fit: contain;
   }
 
   .product-info {
