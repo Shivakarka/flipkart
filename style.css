@@ -55,7 +55,7 @@ nav div a {
   align-items: flex-start;
   gap: 25vw;
   width: 100vw;
-  height: 268px;
+  height: 330px;
   margin: 0 auto;
   padding: 40px 0px;
   border-bottom: 1px solid #f0f0f1;
@@ -72,6 +72,29 @@ nav div a {
   height: 220px;
   padding-bottom: 40px;
   object-fit: contain;
+}
+
+.product-left-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.checkboxes > * {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.checkboxes label {
+  margin-left: 5px;
 }
 
 .product-info {
@@ -123,6 +146,10 @@ nav div a {
 .product-right span {
   color: var(--primary-green);
   font-weight: 600;
+}
+
+.product-right span:nth-child(2) {
+  margin-left: 6px;
 }
 
 footer {
@@ -201,8 +228,20 @@ footer h6 {
 
   .product-left {
     flex-direction: column;
+    align-items: flex-start;
     gap: 30px;
     margin-left: 30px;
+  }
+
+  .product-left-items img {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+  }
+
+  .product-left-items .checkboxes {
+    flex-direction: row;
+    gap: 30px;
   }
 
   footer {
@@ -251,6 +290,16 @@ footer h6 {
     flex-direction: column;
     gap: 30px;
     margin-left: 0px;
+  }
+
+  .product-left-items {
+    gap: 30px;
+  }
+
+  .product-left-items .checkboxes {
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
   }
 
   .product-info a {
