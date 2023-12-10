@@ -165,6 +165,8 @@ footer {
 
 .footer-top h6 {
   color: #878787;
+  font-size: 12px;
+  margin-bottom: 6px;
 }
 
 .footer-top {
@@ -402,11 +404,19 @@ footer {
     gap: 10px;
   }
 
+  .footer-top h6 {
+    margin-bottom: 0px;
+  }
+
   .footer-left {
     display: inline-block;
     margin-left: 20px;
     width: 50%;
     height: max-content;
+  }
+
+  .footer-left li:last-child {
+    margin-bottom: 15px;
   }
 
   .footer-right {
