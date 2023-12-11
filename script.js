@@ -1,6 +1,8 @@
 const productSection = document.querySelector(".product-section");
 const footerDiv = document.querySelector(".footer");
 
+let localProducts = JSON.parse(localStorage.getItem("products"));
+
 const initStore = () => {
   loadDataFromUrl("https://sandbox.nextleap.app/products/fetch").then(
     (products) => {
@@ -36,6 +38,7 @@ const randomNumber = () => {
 const renderProducts = (products) => {
   products?.productCard?.forEach((product) => {
     const random = randomNumber();
+    console.log(random);
     productSection.innerHTML += `
      <div class="product-container">
         <div class="product-left">
@@ -46,10 +49,10 @@ const renderProducts = (products) => {
               title=${product.title}
             />
             <div class="checkboxes">
-              <div class="add-cart">
-                <input type="checkbox" id="${random}-cart" class="checkbox" />
+              <form class="add-cart">
+                <input type="checkbox" name="addcart" id="${random}-cart" class="add-checkbox" />
                 <label for="${random}-cart">Add to cart</label>
-              </div>
+              </form>
               <div class="add-compare">
                 <input type="checkbox" id="${random}-compare" class="checkbox" />
                 <label for="${random}-compare">Add to compare</label>
@@ -162,4 +165,32 @@ const renderFooter = (products) => {
       `;
 };
 
-document.addEventListener("DOMContentLoaded", initStore);
+document.addEventListener("DOMContentLoaded", () => {
+  initStore();
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (target.matches(".add-checkbox")) {
+      let products =
+        target.parentElement.parentElement.parentElement.parentElement;
+      let productName =
+        products.children[1].children[0].children[0].textContent;
+      let qty = 1;
+
+      let localProducts = JSON.parse(localStorage.getItem("products")) || [];
+
+      const existingProduct = localProducts.find(
+        (product) => product.productName === productName
+      );
+
+      if (existingProduct) {
+        existingProduct.qty += qty;
+      } else {
+        localProducts.push({ productName, qty });
+      }
+
+      localStorage.setItem("products", JSON.stringify(localProducts));
+    }
+  });
+});
