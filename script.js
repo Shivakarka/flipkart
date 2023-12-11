@@ -128,7 +128,10 @@ const renderFooter = (products) => {
             <p>${footerRightData2[5]}, ${footerRightData2[6]},</p>
             <p>${footerRightData1[7]}, ${footerRightData1[8]}</p>
             <p>${footerRightData2[8].slice(6, 34)}</p>
-            <p>${footerRightData2[8].slice(35)}</p>
+            <p>${footerRightData2[8].slice(
+              35,
+              45
+            )} <span>${footerRightData2[8].slice(46)}</span></p>
           </div>
         </div>
       </div>
