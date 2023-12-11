@@ -224,6 +224,8 @@ nav div a {
   position: absolute;
   right: 180px;
   bottom: 23px;
+  border: none;
+  background-color: transparent;
 }
 
 .compare {
