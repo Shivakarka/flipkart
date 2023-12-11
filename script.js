@@ -29,8 +29,13 @@ const loadDataFromUrl = async (url) => {
   }
 };
 
+const randomNumber = () => {
+  return Math.floor(Math.random() * 100000);
+};
+
 const renderProducts = (products) => {
   products?.productCard?.forEach((product) => {
+    const random = randomNumber();
     productSection.innerHTML += `
      <div class="product-container">
         <div class="product-left">
@@ -42,12 +47,12 @@ const renderProducts = (products) => {
             />
             <div class="checkboxes">
               <div class="add-cart">
-                <input type="checkbox" id="cart" class="checkbox" />
-                <label for="cart">Add to cart</label>
+                <input type="checkbox" id="${random}-cart" class="checkbox" />
+                <label for="${random}-cart">Add to cart</label>
               </div>
               <div class="add-compare">
-                <input type="checkbox" id="compare" class="checkbox" />
-                <label for="compare">Add to compare</label>
+                <input type="checkbox" id="${random}-compare" class="checkbox" />
+                <label for="${random}-compare">Add to compare</label>
               </div>
             </div>
           </div>
