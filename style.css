@@ -165,6 +165,8 @@ nav div a {
 .compare-window {
   display: flex;
   width: max-content;
+  min-width: 300px;
+  justify-content: flex-end;
   height: 250px;
   background-color: #fff;
   border: 1px solid lightgray;
@@ -189,10 +191,10 @@ nav div a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   position: relative;
   font-size: 12px;
-  width: 130px;
+  width: 160px;
 }
 
 .compare-images img {
@@ -200,7 +202,7 @@ nav div a {
   height: 120px;
   object-fit: contain;
   position: relative;
-  margin-top: -20px;
+  margin-top: -50px;
 }
 
 .compare-images button {
@@ -209,17 +211,18 @@ nav div a {
   cursor: pointer;
   align-self: flex-end;
   position: absolute;
-  top: -10px;
-  right: -5px;
-  font-size: 16px;
+  top: 0px;
+  right: 10px;
+  font-size: 18px;
   font-weight: 600;
   color: #898989;
 }
 
 #remove-all {
-  color: #000;
+  color: rgb(78, 73, 73);
   font-size: 14px;
-  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
   cursor: pointer;
   position: absolute;
   right: 180px;

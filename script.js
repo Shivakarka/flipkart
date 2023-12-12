@@ -1,8 +1,15 @@
 const productSection = document.querySelector(".product-section");
 const footerDiv = document.querySelector(".footer");
+const compareDiv = document.querySelector(".compare-div");
+const compareWindow = document.querySelector(".compare-window");
+const compareCountSpan = document.getElementById("compare-count");
+const removeAllButton = document.getElementById("remove-all");
+
+let compareProducts = JSON.parse(localStorage.getItem("compareProducts")) || [];
 
 let localProducts = JSON.parse(localStorage.getItem("products"));
 
+// Data fetching functions
 const initStore = () => {
   loadDataFromUrl("https://sandbox.nextleap.app/products/fetch").then(
     (products) => {
@@ -31,14 +38,22 @@ const loadDataFromUrl = async (url) => {
   }
 };
 
-const randomNumber = () => {
-  return Math.floor(Math.random() * 100000);
+// All render functions
+const renderCompare = () => {
+  productSection.innerHTML += `
+         <div class="compare-div">
+        <div class="compare-window"></div>
+
+        <div class="compare">
+          <span>COMPARE</span><span id="compare-count">3</span>
+        </div>
+      </div>
+    `;
 };
 
 const renderProducts = (products) => {
   products?.productCard?.forEach((product) => {
     const random = randomNumber();
-    console.log(random);
     productSection.innerHTML += `
      <div class="product-container">
         <div class="product-left">
@@ -54,7 +69,7 @@ const renderProducts = (products) => {
                 <label for="${random}-cart">Add to cart</label>
               </form>
               <div class="add-compare">
-                <input type="checkbox" id="${random}-compare" class="checkbox" />
+                <input type="checkbox" id="${random}-compare" class="add-checkbox" />
                 <label for="${random}-compare">Add to compare</label>
               </div>
             </div>
@@ -165,8 +180,60 @@ const renderFooter = (products) => {
       `;
 };
 
+// Helper functions
+const randomNumber = () => {
+  return Math.floor(Math.random() * 100000);
+};
+
+const showCompare = () => {
+  const compareDiv = document.querySelector(".compare-div");
+
+  let compareProducts =
+    JSON.parse(localStorage.getItem("compareProducts")) || [];
+
+  if (compareProducts.length > 0) {
+    compareDiv.style.display = "block";
+  } else {
+    compareDiv.style.display = "none";
+  }
+};
+
+const updateCompareSection = () => {
+  const compareWindow = document.querySelector(".compare-window");
+  const compareCountSpan = document.getElementById("compare-count");
+
+  let compareProducts =
+    JSON.parse(localStorage.getItem("compareProducts")) || [];
+
+  compareCountSpan.textContent = compareProducts.length;
+
+  compareWindow.innerHTML = "";
+
+  compareProducts.forEach((product) => {
+    console.log("loop ran");
+    compareWindow.innerHTML += `
+        <div class="compare-images">
+          <img
+            src=${product.image}
+            alt=${product.title}
+            title=${product.title}
+          />
+          <span>${product.title.slice(0, 12)}...</span>
+          <button class="remove-compare" data-title="${
+            product.title
+          }">&#10005</button>
+        </div>
+        <button id="remove-all">REMOVE ALL</button>
+      `;
+  });
+
+  showCompare();
+};
+
+// Event listeners and init functions
 document.addEventListener("DOMContentLoaded", () => {
   initStore();
+  renderCompare();
 
   document.addEventListener("click", (event) => {
     const target = event.target;
@@ -192,5 +259,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
       localStorage.setItem("products", JSON.stringify(localProducts));
     }
+
+    if (target.matches(".add-checkbox")) {
+      let products =
+        target.parentElement.parentElement.parentElement.parentElement;
+
+      let productName =
+        products.children[1].children[0].children[0].textContent;
+
+      let image = products.children[0].children[0].getAttribute("src");
+
+      const existingProduct = compareProducts.find(
+        (product) => product.title === productName
+      );
+
+      if (!existingProduct) {
+        compareProducts.push({ title: productName, image });
+        localStorage.setItem(
+          "compareProducts",
+          JSON.stringify(compareProducts)
+        );
+        updateCompareSection();
+      }
+    }
+
+    if (target.matches(".remove-compare")) {
+      console.log("remove");
+      const title = target.dataset.title;
+      compareProducts = compareProducts.filter(
+        (product) => product.title !== title
+      );
+      localStorage.setItem("compareProducts", JSON.stringify(compareProducts));
+      updateCompareSection();
+    }
+
+    if (target.matches("#remove-all")) {
+      compareProducts = [];
+      localStorage.setItem("compareProducts", JSON.stringify(compareProducts));
+      updateCompareSection();
+    }
   });
+
+  updateCompareSection();
 });
