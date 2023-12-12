@@ -1,3 +1,4 @@
+// const navBar = document.querySelector("nav");
 const productSection = document.querySelector(".product-section");
 const footerDiv = document.querySelector(".footer");
 const compareDiv = document.querySelector(".compare-div");
@@ -39,19 +40,29 @@ const loadDataFromUrl = async (url) => {
 };
 
 // All render functions
-const renderCompare = () => {
-  productSection.innerHTML += `
-         <div class="compare-div">
-        <div class="compare-window"></div>
-
-        <div class="compare">
-          <span>COMPARE</span><span id="compare-count">3</span>
-        </div>
+const renderNavBar = () => {
+  const navBar = document.createElement("nav");
+  navBar.innerHTML += ` <div>
+        <a href="https://www.flipkart.com"><img src="./assets/Vector.svg" /></a>
+        <input type="text" name="search" placeholder="Search" />
+        <a
+          href="https://seller.flipkart.com/sell-online/?utm_source=fkwebsite&utm_medium=websitedirect"
+          class="become-seller"
+          >Become a Seller
+        </a>
+        <a
+          href="https://www.flipkart.com/viewcart?exploreMode=true&preference=FLIPKART"
+        >
+          Cart
+        </a>
       </div>
-    `;
+      `;
+  document.body.prepend(navBar);
 };
 
 const renderProducts = (products) => {
+  const productSection = document.createElement("section");
+  productSection.classList.add("product-section");
   products?.productCard?.forEach((product) => {
     const random = randomNumber();
     productSection.innerHTML += `
@@ -106,9 +117,11 @@ const renderProducts = (products) => {
       </div>
               `;
   });
+  document.body.append(productSection);
 };
 
 const renderFooter = (products) => {
+  const footerDiv = document.createElement("footer");
   const footerItem1 = products?.footer.colunms;
   const footerItem2 = products?.footer.bottomColunms;
 
@@ -178,6 +191,23 @@ const renderFooter = (products) => {
    
       </div>
       `;
+
+  document.body.append(footerDiv);
+};
+
+const renderCompare = () => {
+  const section = document.createElement("section");
+  section.classList.add("compare-section");
+  section.innerHTML += `
+         <div class="compare-div">
+        <div class="compare-window"></div>
+
+        <div class="compare">
+          <span>COMPARE</span><span id="compare-count">3</span>
+        </div>
+      </div>
+    `;
+  document.body.append(section);
 };
 
 // Helper functions
@@ -210,7 +240,6 @@ const updateCompareSection = () => {
   compareWindow.innerHTML = "";
 
   compareProducts.forEach((product) => {
-    console.log("loop ran");
     compareWindow.innerHTML += `
         <div class="compare-images">
           <img
@@ -232,6 +261,7 @@ const updateCompareSection = () => {
 
 // Event listeners and init functions
 document.addEventListener("DOMContentLoaded", () => {
+  renderNavBar();
   initStore();
   renderCompare();
 
@@ -284,7 +314,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (target.matches(".remove-compare")) {
-      console.log("remove");
       const title = target.dataset.title;
       compareProducts = compareProducts.filter(
         (product) => product.title !== title
