@@ -1,6 +1,9 @@
 import { showCompare } from "./helperFunctions.js";
 
 const createCompareImage = (product) => {
+  const compareImageContainer = document.createElement("div");
+  compareImageContainer.classList.add("compare-images-container");
+
   const compareImageDiv = document.createElement("div");
   compareImageDiv.classList.add("compare-images");
 
@@ -21,7 +24,9 @@ const createCompareImage = (product) => {
   compareImageDiv.appendChild(productTitle);
   compareImageDiv.appendChild(removeButton);
 
-  return compareImageDiv;
+  compareImageContainer.appendChild(compareImageDiv);
+
+  return compareImageContainer;
 };
 
 const createRemoveAllButton = () => {
