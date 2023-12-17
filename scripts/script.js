@@ -68,6 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
           JSON.stringify(compareProducts)
         );
         updateCompareSection();
+      } else {
+        compareProducts = compareProducts.filter(
+          (product) => product.title !== productName
+        );
+        localStorage.setItem(
+          "compareProducts",
+          JSON.stringify(compareProducts)
+        );
+        updateCompareSection();
       }
     }
 
