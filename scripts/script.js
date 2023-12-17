@@ -39,16 +39,36 @@ document.addEventListener("DOMContentLoaded", () => {
         (product) => product.productName === productName
       );
 
-      if (existingProduct) {
-        existingProduct.qty += qty;
+      // checked = true => add to cart
+      // checked = false => remove from cart
+      if (target.checked) {
+        if (!existingProduct) {
+          localProducts.push({ productName, qty });
+          localStorage.setItem("products", JSON.stringify(localProducts));
+        } else {
+          localProducts = localProducts.map((product) => {
+            if (product.productName === productName) {
+              return { ...product, qty: product.qty + 1 };
+            } else {
+              return product;
+            }
+          });
+          localStorage.setItem("products", JSON.stringify(localProducts));
+        }
       } else {
-        localProducts.push({ productName, qty });
+        if (existingProduct) {
+          localProducts = localProducts.filter(
+            (product) => product.productName !== productName
+          );
+          localStorage.setItem("products", JSON.stringify(localProducts));
+        }
       }
 
       localStorage.setItem("products", JSON.stringify(localProducts));
     }
 
-    if (target.matches(".add-checkbox")) {
+    if (target.matches(".add-compare")) {
+      console.log("compare");
       let products =
         target.parentElement.parentElement.parentElement.parentElement;
 
@@ -61,6 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
         (product) => product.title === productName
       );
 
+      // checked = true => add to compare
+      // checked = false => remove from compare
       if (target.checked) {
         if (!existingProduct) {
           compareProducts.push({ title: productName, image });

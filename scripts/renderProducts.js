@@ -44,7 +44,7 @@ const renderProducts = (products) => {
     const addCompareCheckbox = document.createElement("input");
     addCompareCheckbox.type = "checkbox";
     addCompareCheckbox.id = `${randomNumber()}-compare`;
-    addCompareCheckbox.classList.add("add-checkbox");
+    addCompareCheckbox.classList.add("add-compare");
 
     const addCompareLabel = document.createElement("label");
     addCompareLabel.htmlFor = addCompareCheckbox.id;
