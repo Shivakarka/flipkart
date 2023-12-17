@@ -173,7 +173,10 @@ nav div a {
   position: fixed;
   right: 80px;
   bottom: 4vh;
-  /* visibility: hidden;   */
+  visibility: hidden;
+}
+
+.compare-animate {
   animation-name: popin;
   animation-duration: 0.4s;
   animation-fill-mode: both;

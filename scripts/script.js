@@ -122,5 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // compare animation
+  const compareButton = document.querySelector(".compare");
+  compareButton.addEventListener("mouseover", () => {
+    const compareWindow = document.querySelector(".compare-window");
+    compareWindow.classList.add("compare-animate");
+    compareWindow.style.visibility = "visible";
+  });
+
   updateCompareSection();
 });
