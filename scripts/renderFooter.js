@@ -18,6 +18,7 @@ const createParagraph = (text) => {
 };
 
 const createImage = (src, alt) => {
+  if (!src) return "";
   const img = document.createElement("img");
   img.src = src;
   img.alt = alt;
