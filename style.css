@@ -47,7 +47,7 @@ nav div a {
 
 .become-seller {
   margin-right: 10px;
-  text-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .product-section {
@@ -146,6 +146,13 @@ nav div a {
 .product-right .price {
   font-size: 24px;
   font-weight: 700;
+}
+
+/* Adjusted font weight for Firefox */
+@-moz-document url-prefix() {
+  .product-right .price {
+    font-weight: 500;
+  }
 }
 
 .product-right span {
