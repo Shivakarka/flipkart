@@ -61,22 +61,26 @@ document.addEventListener("DOMContentLoaded", () => {
         (product) => product.title === productName
       );
 
-      if (!existingProduct) {
-        compareProducts.push({ title: productName, image });
-        localStorage.setItem(
-          "compareProducts",
-          JSON.stringify(compareProducts)
-        );
-        updateCompareSection();
+      if (target.checked) {
+        if (!existingProduct) {
+          compareProducts.push({ title: productName, image });
+          localStorage.setItem(
+            "compareProducts",
+            JSON.stringify(compareProducts)
+          );
+          updateCompareSection();
+        }
       } else {
-        compareProducts = compareProducts.filter(
-          (product) => product.title !== productName
-        );
-        localStorage.setItem(
-          "compareProducts",
-          JSON.stringify(compareProducts)
-        );
-        updateCompareSection();
+        if (existingProduct) {
+          compareProducts = compareProducts.filter(
+            (product) => product.title !== productName
+          );
+          localStorage.setItem(
+            "compareProducts",
+            JSON.stringify(compareProducts)
+          );
+          updateCompareSection();
+        }
       }
     }
 

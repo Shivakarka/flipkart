@@ -47,8 +47,10 @@ const updateCompareSection = () => {
     compareWindow.appendChild(compareImageDiv);
   });
 
-  const removeAllButton = createRemoveAllButton();
-  compareWindow.appendChild(removeAllButton);
+  if (compareProducts.length > 1) {
+    const removeAllButton = createRemoveAllButton();
+    compareWindow.appendChild(removeAllButton);
+  }
 
   showCompare();
 };

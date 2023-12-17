@@ -164,7 +164,6 @@ nav div a {
 .compare-window {
   display: flex;
   width: max-content;
-  min-width: 300px;
   justify-content: flex-end;
   height: 250px;
   background-color: #fff;
@@ -238,7 +237,7 @@ nav div a {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   font-weight: bold;
   font-size: 14px;
   position: fixed;
@@ -252,7 +251,7 @@ nav div a {
 
 #compare-count {
   background-color: #205dc0;
-  padding: 3px 6px;
+  padding: 2px 5px;
   font-size: 16px;
 }
 
