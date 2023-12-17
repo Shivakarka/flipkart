@@ -1,5 +1,36 @@
 import { showCompare } from "./helperFunctions.js";
 
+const createCompareImage = (product) => {
+  const compareImageDiv = document.createElement("div");
+  compareImageDiv.classList.add("compare-images");
+
+  const productImage = document.createElement("img");
+  productImage.src = product.image;
+  productImage.alt = product.title;
+  productImage.title = product.title;
+
+  const productTitle = document.createElement("span");
+  productTitle.textContent = `${product.title.slice(0, 12)}...`;
+
+  const removeButton = document.createElement("button");
+  removeButton.classList.add("remove-compare");
+  removeButton.dataset.title = product.title;
+  removeButton.innerHTML = "&#10005";
+
+  compareImageDiv.appendChild(productImage);
+  compareImageDiv.appendChild(productTitle);
+  compareImageDiv.appendChild(removeButton);
+
+  return compareImageDiv;
+};
+
+const createRemoveAllButton = () => {
+  const removeAllButton = document.createElement("button");
+  removeAllButton.id = "remove-all";
+  removeAllButton.textContent = "REMOVE ALL";
+  return removeAllButton;
+};
+
 const updateCompareSection = () => {
   const compareWindow = document.querySelector(".compare-window");
   const compareCountSpan = document.getElementById("compare-count");
@@ -12,21 +43,12 @@ const updateCompareSection = () => {
   compareWindow.innerHTML = "";
 
   compareProducts.forEach((product) => {
-    compareWindow.innerHTML += `
-        <div class="compare-images">
-          <img
-            src=${product.image}
-            alt=${product.title}
-            title=${product.title}
-          />
-          <span>${product.title.slice(0, 12)}...</span>
-          <button class="remove-compare" data-title="${
-            product.title
-          }">&#10005</button>
-        </div>
-        <button id="remove-all">REMOVE ALL</button>
-      `;
+    const compareImageDiv = createCompareImage(product);
+    compareWindow.appendChild(compareImageDiv);
   });
+
+  const removeAllButton = createRemoveAllButton();
+  compareWindow.appendChild(removeAllButton);
 
   showCompare();
 };
