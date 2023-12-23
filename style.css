@@ -640,8 +640,16 @@ footer {
     margin-top: 20px;
   }
 
+  .footer-left-items:first-child h6:first-of-type {
+    margin-top: 0px;
+  }
+
   .about {
     margin-top: 0px !important;
+  }
+
+  .footer-right-items2 {
+    margin-top: 45px;
   }
 
   .footer-bottom {
