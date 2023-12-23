@@ -180,7 +180,7 @@ nav div a {
   padding: 10px;
   position: fixed;
   right: 30px;
-  bottom: 4vh;
+  bottom: 40px;
   visibility: hidden;
   /* gap: 20px; */
   z-index: 20;
@@ -268,7 +268,7 @@ nav div a {
   font-size: 14px;
   position: fixed;
   right: 50px;
-  bottom: 5vh;
+  bottom: 50px;
   z-index: 30;
 }
 
@@ -429,8 +429,8 @@ footer {
   }
 
   .product-left-items img {
-    width: 280px;
-    height: 280px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
   }
 
@@ -484,6 +484,7 @@ footer {
   .footer-left {
     gap: 10px;
     width: 90vw;
+    padding: 10px;
   }
 
   .footer-right {
@@ -524,6 +525,7 @@ footer {
   .product-container {
     height: max-content;
     width: 90vw;
+    gap: 10vw;
     flex-wrap: wrap;
   }
 
@@ -535,6 +537,7 @@ footer {
 
   .product-left-items {
     gap: 30px;
+    margin-left: 30px;
   }
 
   .product-left-items .checkboxes {
@@ -548,8 +551,8 @@ footer {
   }
 
   .product-left img {
-    width: 70%;
-    height: 70%;
+    width: 50%;
+    height: 50%;
     padding: 0;
     margin: 0;
     object-fit: contain;
@@ -561,7 +564,6 @@ footer {
 
   .product-right {
     width: 100%;
-    padding-left: 30px;
     align-items: center;
   }
 
@@ -644,10 +646,6 @@ footer {
     margin-top: 0px;
   }
 
-  .about {
-    margin-top: 0px !important;
-  }
-
   .footer-right-items2 {
     margin-top: 45px;
   }
@@ -667,8 +665,14 @@ footer {
 
   .footer-bottom div {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 10px;
+  }
+
+  .footer-bottom div img:last-child {
+    width: 90%;
+    object-fit: contain;
+    margin-bottom: 10px;
   }
 }
