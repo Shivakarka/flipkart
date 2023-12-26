@@ -2,6 +2,8 @@
 
 Mini Flipkart product page clone
 
+Deployed Live Link : https://shivakarka.github.io/flipkart/
+
 ## Table of Contents
 
 - [Introduction](#introduction)
