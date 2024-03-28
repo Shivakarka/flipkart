@@ -257,7 +257,7 @@ nav div a {
 
 .compare {
   width: 144px;
-  padding: 10px 40px;
+  padding: 10px 25px;
   background-color: var(--primary-blue);
   color: #fff;
   display: flex;
